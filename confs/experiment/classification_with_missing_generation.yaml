@@ -6,7 +6,7 @@ pipeline: missing # DO NOT CHANGE
 seed: 42 # Seed for randomness control
 verbose: 1 # 0 or 1, verbosity of the training
 
-continue_experiment: False # True or False, if the experiment should be continued from where it was interrupted
+continue_experiment: True # True or False, if the experiment should be continued from where it was interrupted
 
 missing_percentages: [0.0, 0.05, 0.1, 0.25, 0.5, 0.75]
 
