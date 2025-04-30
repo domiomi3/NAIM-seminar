@@ -1,0 +1,18 @@
+params,values
+method,normalize
+numerical_columns,"['word_freq_make', 'word_freq_address', 'word_freq_all', 'word_freq_3d', 'word_freq_our', 'word_freq_over', 'word_freq_remove', 'word_freq_internet', 'word_freq_order', 'word_freq_mail', 'word_freq_receive', 'word_freq_will', 'word_freq_people', 'word_freq_report', 'word_freq_addresses', 'word_freq_free', 'word_freq_business', 'word_freq_email', 'word_freq_you', 'word_freq_credit', 'word_freq_your', 'word_freq_font', 'word_freq_000', 'word_freq_money', 'word_freq_hp', 'word_freq_hpl', 'word_freq_george', 'word_freq_650', 'word_freq_lab', 'word_freq_labs', 'word_freq_telnet', 'word_freq_857', 'word_freq_data', 'word_freq_415', 'word_freq_85', 'word_freq_technology', 'word_freq_1999', 'word_freq_parts', 'word_freq_pm', 'word_freq_direct', 'word_freq_cs', 'word_freq_meeting', 'word_freq_original', 'word_freq_project', 'word_freq_re', 'word_freq_edu', 'word_freq_table', 'word_freq_conference', 'char_freq_;', 'char_freq_(', 'char_freq_[', 'char_freq_!', 'char_freq_$', 'char_freq_#', 'capital_run_length_average', 'capital_run_length_longest', 'capital_run_length_total']"
+max_,"[[4.5400e+00, 1.4280e+01, 5.1000e+00, 4.2810e+01, 1.0000e+01, 5.8800e+00,
+  7.2700e+00, 1.1110e+01, 5.2600e+00, 1.8180e+01, 2.0000e+00, 9.6700e+00,
+  5.5500e+00, 5.5500e+00, 4.4100e+00, 2.0000e+01, 5.1200e+00, 9.0900e+00,
+  1.8750e+01, 1.8180e+01, 1.1110e+01, 1.7100e+01, 4.0100e+00, 9.7500e+00,
+  2.0000e+01, 1.6660e+01, 3.3330e+01, 9.0900e+00, 1.1110e+01, 4.7600e+00,
+  1.2500e+01, 4.7600e+00, 1.8180e+01, 4.7600e+00, 4.7600e+00, 4.7600e+00,
+  6.8900e+00, 8.3300e+00, 9.7500e+00, 4.7600e+00, 7.1400e+00, 1.4280e+01,
+  3.5700e+00, 2.0000e+01, 2.1420e+01, 1.3370e+01, 2.1700e+00, 5.0000e+00,
+  4.3850e+00, 9.7520e+00, 4.0810e+00, 3.2478e+01, 6.0030e+00, 1.9829e+01,
+  1.1025e+03, 9.9890e+03, 1.5841e+04]]"
+min_,"[[0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+  0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+  0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+  1., 1., 1.]]"
+axis,0

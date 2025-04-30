@@ -1,0 +1,5 @@
+[2025-02-14 12:06:57,656][__main__][INFO] - Adult dataset downloaded
+[2025-02-14 12:06:59,683][__main__][INFO] - Bankmarketing dataset downloaded
+[2025-02-14 12:07:01,178][__main__][INFO] - OnlineShoppers dataset downloaded
+[2025-02-14 12:07:02,549][__main__][INFO] - SeismicBumps dataset downloaded
+[2025-02-14 12:07:03,604][__main__][INFO] - Spambase dataset downloaded

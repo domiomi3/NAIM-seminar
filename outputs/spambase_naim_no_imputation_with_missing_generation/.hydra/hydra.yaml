@@ -1,0 +1,184 @@
+hydra:
+  run:
+    dir: ${output_path}/${hydra.job.name}
+  sweep:
+    dir: ${output_path}/${hydra.job.name}
+    subdir: ''
+  launcher:
+    _target_: hydra._internal.core_plugins.basic_launcher.BasicLauncher
+  sweeper:
+    _target_: hydra._internal.core_plugins.basic_sweeper.BasicSweeper
+    max_batch_size: null
+    params: null
+  help:
+    app_name: ${hydra.job.name}
+    header: '${hydra.help.app_name} is powered by Hydra.
+
+      '
+    footer: 'Powered by Hydra (https://hydra.cc)
+
+      Use --hydra-help to view Hydra specific help
+
+      '
+    template: '${hydra.help.header}
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (group=option)
+
+
+      $APP_CONFIG_GROUPS
+
+
+      == Config ==
+
+      Override anything in the config (foo.bar=value)
+
+
+      $CONFIG
+
+
+      ${hydra.help.footer}
+
+      '
+  hydra_help:
+    template: 'Hydra (${hydra.runtime.version})
+
+      See https://hydra.cc for more info.
+
+
+      == Flags ==
+
+      $FLAGS_HELP
+
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (For example, append hydra/job_logging=disabled
+      to command line)
+
+
+      $HYDRA_CONFIG_GROUPS
+
+
+      Use ''--cfg hydra'' to Show the Hydra config.
+
+      '
+    hydra_help: ???
+  hydra_logging:
+    version: 1
+    formatters:
+      simple:
+        format: '[%(asctime)s][HYDRA] %(message)s'
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: simple
+        stream: ext://sys.stdout
+    root:
+      level: INFO
+      handlers:
+      - console
+    loggers:
+      logging_example:
+        level: DEBUG
+    disable_existing_loggers: false
+  job_logging:
+    version: 1
+    formatters:
+      simple:
+        format: '[%(asctime)s][%(name)s][%(levelname)s] - %(message)s'
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: simple
+        stream: ext://sys.stdout
+      file:
+        class: logging.FileHandler
+        formatter: simple
+        filename: ${hydra.runtime.output_dir}/${hydra.job.name}.log
+    root:
+      level: INFO
+      handlers:
+      - console
+      - file
+    disable_existing_loggers: false
+  env: {}
+  mode: MULTIRUN
+  searchpath: []
+  callbacks: {}
+  output_subdir: .hydra
+  overrides:
+    hydra:
+    - hydra.mode=MULTIRUN
+    task:
+    - experiment=classification_with_missing_generation
+    - experiment/databases@db=spambase
+  job:
+    name: ${experiment_name}
+    chdir: false
+    override_dirname: experiment/databases@db=spambase,experiment=classification_with_missing_generation
+    id: '0'
+    num: 0
+    config_name: config
+    env_set: {}
+    env_copy: []
+    config:
+      override_dirname:
+        kv_sep: '='
+        item_sep: ','
+        exclude_keys: []
+  runtime:
+    version: 1.3.0
+    version_base: '1.3'
+    cwd: /work/dlclarge1/matusd-naim/NAIM-seminar
+    config_sources:
+    - path: hydra.conf
+      schema: pkg
+      provider: hydra
+    - path: /work/dlclarge1/matusd-naim/NAIM-seminar/confs
+      schema: file
+      provider: main
+    - path: ''
+      schema: structured
+      provider: schema
+    output_dir: /work/dlclarge1/matusd-naim/NAIM-seminar/outputs/spambase_naim_no_imputation_with_missing_generation
+    choices:
+      experiment: classification_with_missing_generation
+      experiment/metric@performance_metrics.f1_score: f1_score
+      experiment/metric@performance_metrics.precision: precision
+      experiment/metric@performance_metrics.recall: recall
+      experiment/metric@performance_metrics.accuracy: accuracy
+      experiment/metric@performance_metrics.auc: auc
+      experiment/metric@train.set_metrics.auc: auc
+      experiment/train_utils@train.manager: train_manager
+      experiment/optimizer@train.optimizer: adam
+      experiment/regularizer@train.regularizer.l2: l2
+      experiment/regularizer@train.regularizer.l1: l1
+      experiment/loss@train.loss.CE: cross_entropy
+      experiment/initializer@train.initializer: xavier_normal
+      experiment/model_type_params@train.dl_params: dl_params
+      experiment/model@model: naim
+      experiment/model_type_params@ml_params: ml_params
+      experiment/model_type_params@dl_params: dl_params
+      experiment/preprocessing/imputer@preprocessing.imputer: no_imputation
+      experiment/preprocessing/categorical@preprocessing.categorical: categorical_encode
+      experiment/preprocessing/numerical@preprocessing.numerical: normalize
+      experiment/preprocessing/missing_generation@missing_generation.test: MCAR_global
+      experiment/preprocessing/missing_generation@missing_generation.val: no_generation
+      experiment/preprocessing/missing_generation@missing_generation.train: MCAR_global
+      experiment/cross_validation@val_cv: holdout
+      experiment/cross_validation@test_cv: stratifiedkfold
+      experiment/databases@db: spambase
+      experiment/paths@paths: experiment_paths
+      experiment/paths@_global_: default
+      hydra/env: default
+      hydra/callbacks: null
+      hydra/job_logging: default
+      hydra/hydra_logging: default
+      hydra/hydra_help: default
+      hydra/help: default
+      hydra/sweeper: basic
+      hydra/launcher: basic
+      hydra/output: default
+  verbose: false

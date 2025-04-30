@@ -1,8 +1,8 @@
 #!/bin/bash 
-#SBATCH --partition=mlhiwidlc_gpu-rtx2080
+#SBATCH --partition=gpu-single
 #SBATCH --gres=gpu:1
-#SBATCH --job-name=test_naim
-#SBATCH --time=5:00
+#SBATCH --job-name=naim_spambase
+#SBATCH --time=34:00:00
 #SBATCH --mem=50gb
 #SBATCH --output=LOGS//%x.%N.%A.%a.out
 #SBATCH --error=LOGS//%x.%N.%A.%a.err
